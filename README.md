@@ -1,1 +1,1 @@
-# VideoGame-Info
+# VideoGame-info

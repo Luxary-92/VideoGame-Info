@@ -1,0 +1,2 @@
+GET https://api.rawg.io/api/platforms?key=66512237741a4c0e8fbfc7b5d2c21c92
+GET https://api.rawg.io/api/games?key=66512237741a4c0e8fbfc7b5d2c21c92&dates=2019-09-01,2019-09-30&platforms=18,1,7
