@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:videogame_info/api.dart';
 import 'package:videogame_info/models/deatalles_game.dart';
 import 'package:videogame_info/widgets/game_details_list.dart';
-import 'package:flutter/material.dart';
+//import 'package:flutter/material.dart';
 
 void main() {
   runApp(const VideoGameInfo());

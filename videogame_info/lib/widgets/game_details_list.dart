@@ -11,14 +11,35 @@ class UserListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(game.name),
-      /*
-      subtitle: Text(game.website),
-      leading: CircleAvatar(
-        backgroundImage: NetworkImage(game.image),
+    return SafeArea(
+      child: Column(
+        children: [
+          Container(
+            height: 300,
+            width: 300,
+            decoration: BoxDecoration(
+              image: DecorationImage(image: NetworkImage(game.image)),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(50),
+              ),
+            ),
+          ),
+          Image(
+            image: NetworkImage(game.image),
+            fit: BoxFit.cover,
+            width: 300,
+            height: 300,
+          ),
+          Text(
+            game.name,
+            style: const TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
       ),
-      */
     );
   }
 }
