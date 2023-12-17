@@ -18,7 +18,7 @@ class UserListItem extends StatelessWidget {
             height: 450,
             width: 400,
             decoration: BoxDecoration(
-              color: const Color.fromARGB(205, 219, 117, 1),
+              color: Color.fromARGB(205, 68, 0, 95),
               image: DecorationImage(
                   image: NetworkImage(game.image), fit: BoxFit.cover),
               borderRadius: BorderRadius.circular(30),

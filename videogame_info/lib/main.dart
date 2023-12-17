@@ -14,7 +14,7 @@ class VideoGameInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-       theme: ThemeData(
+      theme: ThemeData(
         appBarTheme: const AppBarTheme(
           centerTitle: true,
           backgroundColor: Color(0xFF3C007A),
@@ -26,7 +26,7 @@ class VideoGameInfo extends StatelessWidget {
         ),
       ),
       home: Scaffold(
-                appBar: AppBar(
+        appBar: AppBar(
           title: const Text('Game'),
         ),
         body: DecoratedBox(
@@ -35,9 +35,9 @@ class VideoGameInfo extends StatelessWidget {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                Color(0xFF3C007A), 
-                Color.fromRGBO(60, 0, 122, 1.0), 
-                Color(0xFF681DB7), 
+                Color(0xFF3C007A),
+                Color.fromRGBO(60, 0, 122, 1.0),
+                Color(0xFF681DB7),
               ],
               stops: [0.0, 0.35, 1.0],
             ),
