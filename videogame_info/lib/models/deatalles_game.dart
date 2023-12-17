@@ -1,12 +1,12 @@
 class DetallesGame {
   //int id, metacritic;
-  String name, /*description ,*/ released, image /*, website*/;
+  String name, released, image;
+  double rating;
 
   DetallesGame.fromJson(Map<String, dynamic> json)
       : //id = json["id"],
         name = json["name"],
-        //description = json["description"],
         released = json["released"],
-        //metacritic = json["metacritic"],
-        image = json["background_image"] /*website = json["website"]*/;
+        image = json["background_image"],
+        rating = json["rating"];
 }
