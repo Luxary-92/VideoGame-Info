@@ -14,16 +14,30 @@ class VideoGameInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+       theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          centerTitle: true,
+          backgroundColor: Color(0xFF3C007A),
+          titleTextStyle: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+          ),
+        ),
+      ),
       home: Scaffold(
+                appBar: AppBar(
+          title: const Text('Game'),
+        ),
         body: DecoratedBox(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                Color(0xFF3C007A), // #3C007A
-                Color.fromRGBO(60, 0, 122, 1.0), // rgba(60, 0, 122, 1.00)
-                Color(0xFF681DB7), // #681DB7
+                Color(0xFF3C007A), 
+                Color.fromRGBO(60, 0, 122, 1.0), 
+                Color(0xFF681DB7), 
               ],
               stops: [0.0, 0.35, 1.0],
             ),
