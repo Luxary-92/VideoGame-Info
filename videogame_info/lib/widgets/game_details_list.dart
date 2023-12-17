@@ -76,7 +76,37 @@ class UserListItem extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 15),
+                const SizedBox(height: 5),
+                Row(
+                  children: [
+                    const SizedBox(width: 20),
+                    const Text(
+                      "Playtime : ",
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      game.playtime.toString(),
+                      style: const TextStyle(
+                        fontSize: 15,
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const Text(
+                      " H",
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 10),
               ],
             ),
           ),
