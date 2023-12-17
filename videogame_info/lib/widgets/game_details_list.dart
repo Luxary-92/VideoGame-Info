@@ -15,29 +15,50 @@ class UserListItem extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: 300,
-            width: 300,
+            height: 450,
+            width: 400,
             decoration: BoxDecoration(
-              image: DecorationImage(image: NetworkImage(game.image)),
-              borderRadius: const BorderRadius.all(
-                Radius.circular(50),
-              ),
+              color: const Color.fromARGB(205, 219, 117, 1),
+              image: DecorationImage(
+                  image: NetworkImage(game.image), fit: BoxFit.cover),
+              borderRadius: BorderRadius.circular(30),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    const SizedBox(width: 20),
+                    Text(
+                      game.name,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 5),
+                Row(
+                  children: [
+                    const SizedBox(width: 20),
+                    Text(
+                      game.released,
+                      style: const TextStyle(
+                        fontSize: 15,
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 15),
+              ],
             ),
           ),
-          Image(
-            image: NetworkImage(game.image),
-            fit: BoxFit.cover,
-            width: 300,
-            height: 300,
-          ),
-          Text(
-            game.name,
-            style: const TextStyle(
-              fontSize: 16,
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+          const SizedBox(width: 30, height: 30),
         ],
       ),
     );
