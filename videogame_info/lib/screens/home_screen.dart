@@ -39,25 +39,50 @@ class HomeScreen extends StatelessWidget {
               stops: [0.0, 0.35, 1.0],
             ),
           ),
-          child: FutureBuilder(
-            future: apiLoadDetailsGames(),
-            builder: (
-              BuildContext context,
-              AsyncSnapshot<List<DetallesGame>> snapshot,
-            ) {
-              if (!snapshot.hasData) {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              }
-              final detailsGamesList = snapshot.data!;
-              return ListView.builder(
-                itemCount: detailsGamesList.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return UserListItem(game: detailsGamesList[index]);
-                },
-              );
-            },
+          child: Column(
+            children: [
+              SizedBox(
+                width: 400,
+                child: TextField(
+                  decoration: const InputDecoration(
+                    fillColor: Color.fromRGBO(113, 62, 162, 1),
+                    filled: true,
+                    prefixIcon: Icon(Icons.search),
+                    suffixIcon: Icon(Icons.clear),
+                    border: OutlineInputBorder(),
+                    labelText: 'Search',
+                  ),
+                  onSubmitted: (text) {
+                    debugPrint("Final value is '$text'");
+                  },
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Expanded(
+                child: FutureBuilder(
+                  future: apiLoadDetailsGames(),
+                  builder: (
+                    BuildContext context,
+                    AsyncSnapshot<List<DetallesGame>> snapshot,
+                  ) {
+                    if (!snapshot.hasData) {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                    final detailsGamesList = snapshot.data!;
+                    return ListView.builder(
+                      itemCount: detailsGamesList.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return UserListItem(game: detailsGamesList[index]);
+                      },
+                    );
+                  },
+                ),
+              ),
+            ],
           ),
         ),
       ),
