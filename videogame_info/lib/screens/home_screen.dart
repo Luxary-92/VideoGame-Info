@@ -63,6 +63,28 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 100),
+                  child: FilledButton(
+                    //style: FilledButton.styleFrom(),
+                    onPressed: () {
+                      debugPrint("You pressed the button!");
+                    },
+                    child: Row(
+                      children: [
+                        Icon(Icons.add),
+                        Text("Filter"),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 15,
+            ),
             Expanded(
               child: FutureBuilder(
                 future: apiLoadDetailsGames(),
