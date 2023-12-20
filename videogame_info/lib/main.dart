@@ -13,7 +13,7 @@ class VideoGameInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        "/": (context) => HomeScreen(),
+        "/": (context) => const HomeScreen(),
       },
     );
   }
