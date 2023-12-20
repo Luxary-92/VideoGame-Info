@@ -13,18 +13,19 @@ class HomeScreen extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
+          toolbarHeight: 80,
           centerTitle: true,
           backgroundColor: Color(0xFF3C007A),
           titleTextStyle: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
-            fontSize: 20,
+            fontSize: 32,
           ),
         ),
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Game'),
+          title: const Text('Games'),
         ),
         body: DecoratedBox(
           decoration: const BoxDecoration(
@@ -41,16 +42,31 @@ class HomeScreen extends StatelessWidget {
           ),
           child: Column(
             children: [
+              const SizedBox(
+                height: 5,
+              ),
               SizedBox(
                 width: 400,
                 child: TextField(
+                  style: TextStyle(color: Colors.white70),
                   decoration: const InputDecoration(
+                    isDense: true,
+                    contentPadding: EdgeInsets.all(5),
                     fillColor: Color.fromRGBO(113, 62, 162, 1),
+                    prefixIconColor: Colors.white70,
+                    suffixIconColor: Colors.white70,
                     filled: true,
                     prefixIcon: Icon(Icons.search),
                     suffixIcon: Icon(Icons.clear),
-                    border: OutlineInputBorder(),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(
+                        10.0,
+                      )),
+                    ),
                     labelText: 'Search',
+                    labelStyle: TextStyle(
+                      color: Colors.white70,
+                    ),
                   ),
                   onSubmitted: (text) {
                     debugPrint("Final value is '$text'");
@@ -58,7 +74,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 10,
+                height: 15,
               ),
               Expanded(
                 child: FutureBuilder(
