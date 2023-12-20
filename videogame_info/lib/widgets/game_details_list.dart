@@ -44,20 +44,6 @@ class UserListItem extends StatelessWidget {
                 Row(
                   children: [
                     const SizedBox(width: 20),
-                    Text(
-                      game.released,
-                      style: const TextStyle(
-                        fontSize: 15,
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 5),
-                Row(
-                  children: [
-                    const SizedBox(width: 20),
                     const Text(
                       "Rating : ",
                       style: TextStyle(

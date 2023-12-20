@@ -16,3 +16,17 @@ Future<List<DetallesGame>> apiLoadDetailsGames() async {
   }
   return gameDetalles;
 }
+
+Future<List<InfoGame>> apiLoadInfoGame(int gameId) async {
+  final uri = Uri.parse(
+      "https://api.rawg.io/api/games/$gameId?key=66512237741a4c0e8fbfc7b5d2c21c92");
+  final response = await http.get(uri);
+  final json = jsonDecode(response.body);
+  final jsonGameInfo = json["results"];
+  final List<InfoGame> gameInfo = [];
+  for (final jsonDetallesGame in jsonGameInfo) {
+    final detallesGames = InfoGame.fromJson(jsonDetallesGame);
+    gameInfo.add(detallesGames);
+  }
+  return gameInfo;
+}
