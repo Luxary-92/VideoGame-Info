@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:videogame_info/screens/home_screen.dart';
+import 'package:videogame_info/screens/game_screen.dart';
 //import 'package:flutter/material.dart';
 
 void main() {
