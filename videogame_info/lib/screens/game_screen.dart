@@ -22,21 +22,21 @@ class GameScreen extends StatelessWidget {
           ),
         ),
       ),
-      home: Scaffold(
+      home: const Scaffold(
         body: DecoratedBox(
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                Color(0xFF3C007A),
-                Color.fromRGBO(60, 0, 122, 1.0),
-                Color(0xFF681DB7),
+                Colors.red,
+                Colors.red,
+                Colors.red,
               ],
               stops: [0.0, 0.35, 1.0],
             ),
           ),
-          child: Column(
+          /*child: Column(
             children: [
               Expanded(
                 child: FutureBuilder(
@@ -61,7 +61,7 @@ class GameScreen extends StatelessWidget {
                 ),
               ),
             ],
-          ),
+          ),*/
         ),
       ),
     );

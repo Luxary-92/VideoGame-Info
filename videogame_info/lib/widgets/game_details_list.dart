@@ -27,72 +27,81 @@ class UserListItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: [
-                    const SizedBox(width: 20),
-                    Text(
-                      game.name,
-                      style: const TextStyle(
-                        fontSize: 20,
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        fontWeight: FontWeight.bold,
+                ElevatedButton(
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          const SizedBox(width: 20),
+                          Text(
+                            game.name,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
+                      const SizedBox(height: 5),
+                      Row(
+                        children: [
+                          const SizedBox(width: 20),
+                          const Text(
+                            "Rating : ",
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            game.rating.toString(),
+                            style: const TextStyle(
+                              fontSize: 15,
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 5),
+                      Row(
+                        children: [
+                          const SizedBox(width: 20),
+                          const Text(
+                            "Playtime : ",
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            game.playtime.toString(),
+                            style: const TextStyle(
+                              fontSize: 15,
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const Text(
+                            " H",
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 10),
+                    ],
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pushNamed("/game");
+                  },
                 ),
-                const SizedBox(height: 5),
-                Row(
-                  children: [
-                    const SizedBox(width: 20),
-                    const Text(
-                      "Rating : ",
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      game.rating.toString(),
-                      style: const TextStyle(
-                        fontSize: 15,
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 5),
-                Row(
-                  children: [
-                    const SizedBox(width: 20),
-                    const Text(
-                      "Playtime : ",
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      game.playtime.toString(),
-                      style: const TextStyle(
-                        fontSize: 15,
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const Text(
-                      " H",
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 10),
               ],
             ),
           ),
