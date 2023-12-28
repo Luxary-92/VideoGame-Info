@@ -72,7 +72,7 @@ class HomeScreen extends StatelessWidget {
                     onPressed: () {
                       debugPrint("You pressed the button!");
                     },
-                    child: Row(
+                    child: const Row(
                       children: [
                         Icon(Icons.add),
                         Text("Filter"),
