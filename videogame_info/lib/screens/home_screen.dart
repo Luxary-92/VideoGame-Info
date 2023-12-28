@@ -35,7 +35,7 @@ class HomeScreen extends StatelessWidget {
             SizedBox(
               width: 400,
               child: TextField(
-                style: TextStyle(color: Colors.white70),
+                style: const TextStyle(color: Colors.white70),
                 decoration: const InputDecoration(
                   isDense: true,
                   contentPadding: EdgeInsets.all(5),
