@@ -36,15 +36,25 @@ class GameScreen extends StatelessWidget {
                 future: apiLoadInfoGame(gameID),
                 builder: (
                   BuildContext context,
-                  AsyncSnapshot<InfoGame> snapshot,
+                  snapshot_2,
                 ) {
-                  if (!snapshot.hasData) {
+                  if (!snapshot_2.hasData) {
                     return const Center(
                       child: CircularProgressIndicator(),
                     );
+                  } else if (snapshot_2.hasError) {
+                    return Container();
                   }
-                  final InfoGameDetalles = snapshot.data!;
-                  return MoreInfoGame(gameInfo: InfoGameDetalles);
+                  final detailsGamesList = snapshot_2.data!;
+                  return MoreInfoGame(gameInfo: detailsGamesList);
+
+                  /*
+                  return ListView.builder(
+                    itemBuilder: (BuildContext context, int index) {
+                      return MoreInfoGame(gameInfo: detailsGamesList);
+                    },
+                  );
+                  */
                 },
               ),
             ),

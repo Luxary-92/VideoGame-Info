@@ -22,6 +22,25 @@ Future<InfoGame> apiLoadInfoGame(int gameId) async {
   final uri = Uri.parse(
       "https://api.rawg.io/api/games/$gameId?key=66512237741a4c0e8fbfc7b5d2c21c92");
   final response = await http.get(uri);
+
+  final json = jsonDecode(response.body);
+  /*
+  final jsonGameInfo = json[""];
+
+  final List<InfoGame> gameInfo = [];
+  for (final jsonInfoGame in jsonGameInfo) {
+    final detallesGames = InfoGame.fromJson(jsonInfoGame);
+    gameInfo.add(detallesGames);
+  }
+  */
+  return InfoGame.fromJson(json);
+}
+
+/*
+Future<InfoGame> apiLoadInfoGame(int gameId) async {
+  final uri = Uri.parse(
+      "https://api.rawg.io/api/games/$gameId?key=66512237741a4c0e8fbfc7b5d2c21c92");
+  final response = await http.get(uri);
   final json = jsonDecode(response.body);
   final jsonGameInfo = json["results"];
   /*
@@ -33,3 +52,4 @@ Future<InfoGame> apiLoadInfoGame(int gameId) async {
   */
   return InfoGame.fromJson(jsonGameInfo);
 }
+*/
