@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:videogame_info/models/deatalles_game.dart';
 import 'package:http/http.dart' as http;
+import 'package:videogame_info/models/more_info_game.dart';
 
 Future<List<DetallesGame>> apiLoadDetailsGames() async {
   final uri = Uri.parse(

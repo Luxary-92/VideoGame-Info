@@ -1,5 +1,5 @@
-import 'package:videogame_info/models/deatalles_game.dart';
 import 'package:flutter/material.dart';
+import 'package:videogame_info/models/more_info_game.dart';
 
 class MoreInfoGame extends StatelessWidget {
   const MoreInfoGame({
