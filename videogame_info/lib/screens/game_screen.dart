@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:videogame_info/api.dart';
-import 'package:videogame_info/models/more_info_game.dart';
 import 'package:videogame_info/widgets/game_info.dart';
 
 class GameScreen extends StatelessWidget {
@@ -23,8 +22,8 @@ class GameScreen extends StatelessWidget {
             end: Alignment.bottomCenter,
             colors: [
               Colors.red,
-              Colors.red,
-              Colors.red,
+              Color.fromARGB(255, 0, 255, 34),
+              Color.fromARGB(255, 0, 247, 255),
             ],
             stops: [0.0, 0.35, 1.0],
           ),
@@ -47,14 +46,6 @@ class GameScreen extends StatelessWidget {
                   }
                   final detailsGamesList = snapshot_2.data!;
                   return MoreInfoGame(gameInfo: detailsGamesList);
-
-                  /*
-                  return ListView.builder(
-                    itemBuilder: (BuildContext context, int index) {
-                      return MoreInfoGame(gameInfo: detailsGamesList);
-                    },
-                  );
-                  */
                 },
               ),
             ),

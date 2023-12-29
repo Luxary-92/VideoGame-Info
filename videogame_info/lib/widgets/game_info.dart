@@ -16,12 +16,11 @@ class MoreInfoGame extends StatelessWidget {
         children: [
           Container(
             height: 450,
-            width: 400,
+            width: 800,
             decoration: BoxDecoration(
               color: const Color.fromARGB(205, 68, 0, 95),
               image: DecorationImage(
                   image: NetworkImage(gameInfo.image), fit: BoxFit.cover),
-              borderRadius: BorderRadius.circular(30),
             ),
             child: Column(
               children: [

@@ -15,7 +15,7 @@ class UserListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
-          Navigator.of(context).pushNamed("/game");
+          Navigator.of(context).pushNamed("/game_info");
         },
         child: Column(
           children: [
