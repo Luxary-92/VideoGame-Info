@@ -41,7 +41,7 @@ class UserListItem extends StatelessWidget {
                             game.name,
                             style: const TextStyle(
                               fontSize: 20,
-                              color: Color.fromARGB(255, 255, 255, 255),
+                              color: Colors.white,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -55,7 +55,7 @@ class UserListItem extends StatelessWidget {
                             "Rating : ",
                             style: TextStyle(
                               fontSize: 15,
-                              color: Color.fromARGB(255, 255, 255, 255),
+                              color: Colors.white,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -63,7 +63,7 @@ class UserListItem extends StatelessWidget {
                             game.rating.toString(),
                             style: const TextStyle(
                               fontSize: 15,
-                              color: Color.fromARGB(255, 255, 255, 255),
+                              color: Colors.white,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -77,7 +77,7 @@ class UserListItem extends StatelessWidget {
                             "Playtime : ",
                             style: TextStyle(
                               fontSize: 15,
-                              color: Color.fromARGB(255, 255, 255, 255),
+                              color: Colors.white,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -85,7 +85,7 @@ class UserListItem extends StatelessWidget {
                             game.playtime.toString(),
                             style: const TextStyle(
                               fontSize: 15,
-                              color: Color.fromARGB(255, 255, 255, 255),
+                              color: Colors.white,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -93,7 +93,7 @@ class UserListItem extends StatelessWidget {
                             " H",
                             style: TextStyle(
                               fontSize: 15,
-                              color: Color.fromARGB(255, 255, 255, 255),
+                              color: Colors.white,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -104,7 +104,8 @@ class UserListItem extends StatelessWidget {
                   ),
                 ],
               ),
-            )
+            ),
+            const SizedBox(width: 30, height: 30)
           ],
         ));
   }
