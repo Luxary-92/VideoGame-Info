@@ -13,10 +13,4 @@ class DetallesGame {
         playtime = json["playtime"];
 }
 
-int gameInfoID = 3328;
-
-class GameID {
-  int id;
-
-  GameID.fromJson(Map<String, dynamic> json) : id = 0;
-}
+int gameInfoID = 0;
