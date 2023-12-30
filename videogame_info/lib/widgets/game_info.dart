@@ -14,16 +14,21 @@ class MoreInfoGame extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          Container(
-            height: 450,
-            width: 800,
-            decoration: BoxDecoration(
-              color: const Color.fromARGB(205, 68, 0, 95),
-              image: DecorationImage(
-                  image: NetworkImage(gameInfo.image), fit: BoxFit.cover),
-            ),
+          /*
+          const Align(
+            alignment: Alignment.topLeft,
             child: Column(
               children: [
+                TopMenu(),
+              ],
+            ),
+          ),
+          */
+          SizedBox(
+            height: 600,
+            child: Column(
+              children: [
+                Image(image: NetworkImage(gameInfo.image), fit: BoxFit.cover),
                 Text(
                   gameInfo.name,
                   style: const TextStyle(
