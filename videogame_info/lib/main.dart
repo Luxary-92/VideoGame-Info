@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:videogame_info/screens/favorites_screen.dart';
 import 'package:videogame_info/screens/home_screen.dart';
 import 'package:videogame_info/screens/game_screen.dart';
 //import 'package:flutter/material.dart';
@@ -16,6 +17,8 @@ class VideoGameInfo extends StatelessWidget {
       routes: {
         "/": (context) => const HomeScreen(),
         "/game_info": (context) => const GameScreen(),
+        "/favorites": (context) => const FavesScreen(),
+        "/filters": (context) => const GameScreen(),
       },
     );
   }
