@@ -73,6 +73,7 @@ class HomeScreen extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {
                       debugPrint("You pressed the button!");
+                      Navigator.of(context).pushNamed("/favorites");
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: const Color.fromRGBO(113, 62, 162, 1)),
@@ -88,6 +89,7 @@ class HomeScreen extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {
                       debugPrint("You pressed the button!");
+                      Navigator.of(context).pushNamed("/filters");
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: const Color.fromRGBO(113, 62, 162, 1)),
