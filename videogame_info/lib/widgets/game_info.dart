@@ -11,11 +11,13 @@ class MoreInfoGame extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return SafeArea(
       child: Column(
         children: [
           SizedBox(
             height: 450,
+            width: screenSize.width,
             child:
                 Image(image: NetworkImage(gameInfo.image), fit: BoxFit.cover),
           ),
