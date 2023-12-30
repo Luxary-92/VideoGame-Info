@@ -31,7 +31,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(
-              height: 5,
+              height: 20,
             ),
             SizedBox(
               width: 400,
@@ -65,18 +65,35 @@ class HomeScreen extends StatelessWidget {
               height: 15,
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 100),
-                  child: FilledButton(
-                    //style: FilledButton.styleFrom(),
+                  padding: const EdgeInsets.only(left: 50),
+                  child: ElevatedButton(
                     onPressed: () {
                       debugPrint("You pressed the button!");
                     },
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color.fromRGBO(113, 62, 162, 1)),
                     child: const Row(
                       children: [
-                        Icon(Icons.add),
-                        Text("Filter"),
+                        Text("FAVORITES"),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      debugPrint("You pressed the button!");
+                    },
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color.fromRGBO(113, 62, 162, 1)),
+                    child: const Row(
+                      children: [
+                        Text("FILTERS"),
                       ],
                     ),
                   ),
