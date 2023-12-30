@@ -101,7 +101,10 @@ class HomeScreen extends StatelessWidget {
                   return ListView.builder(
                     itemCount: detailsGamesList.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return UserListItem(game: detailsGamesList[index]);
+                      return UserListItem(
+                        game: detailsGamesList[index],
+                        idGame: detailsGamesList[index].id,
+                      );
                     },
                   );
                 },

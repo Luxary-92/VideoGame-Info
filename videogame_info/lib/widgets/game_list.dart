@@ -5,16 +5,17 @@ class UserListItem extends StatelessWidget {
   const UserListItem({
     super.key,
     required this.game,
+    required this.idGame,
   });
 
   final DetallesGame game;
-
-  get child => null;
+  final int idGame;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
+          gameInfoID = game.id;
           Navigator.of(context).pushNamed("/game_info");
         },
         child: Column(
