@@ -21,9 +21,9 @@ class GameScreen extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Colors.red,
-              Color.fromARGB(255, 0, 255, 34),
-              Color.fromARGB(255, 0, 247, 255),
+              Color(0xFF3C007A),
+              Color.fromRGBO(60, 0, 122, 1.0),
+              Color(0xFF681DB7),
             ],
             stops: [0.0, 0.35, 1.0],
           ),
