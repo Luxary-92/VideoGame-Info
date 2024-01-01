@@ -15,15 +15,13 @@ class HomeScreen extends StatelessWidget {
         title: const Text(
           'Games',
           style: TextStyle(
-            color: Colors.white, 
-            fontWeight: FontWeight.bold, 
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
           ),
         ),
-        centerTitle: true, 
+        centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 41, 0, 82),
-        iconTheme: const IconThemeData(
-            color: Colors
-                .white), 
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: DecoratedBox(
         decoration: const BoxDecoration(
@@ -89,7 +87,12 @@ class HomeScreen extends StatelessWidget {
                         backgroundColor: const Color.fromRGBO(113, 62, 162, 1)),
                     child: const Row(
                       children: [
-                        Text("FAVORITES"),
+                        Text(
+                          "FAVORITES",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -105,7 +108,12 @@ class HomeScreen extends StatelessWidget {
                         backgroundColor: const Color.fromRGBO(113, 62, 162, 1)),
                     child: const Row(
                       children: [
-                        Text("FILTERS"),
+                        Text(
+                          "FILTERS",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
                       ],
                     ),
                   ),
