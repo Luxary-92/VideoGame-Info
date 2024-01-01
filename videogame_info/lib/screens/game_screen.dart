@@ -14,8 +14,17 @@ class GameScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-          title: const Text('Info Game'),
-          backgroundColor: const Color.fromARGB(255, 41, 0, 82)),
+        title: const Text(
+          'Info Game',
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: const Color.fromARGB(255, 41, 0, 82),
+        iconTheme: const IconThemeData(color: Colors.white),
+      ),
       body: DecoratedBox(
         decoration: const BoxDecoration(
           gradient: LinearGradient(

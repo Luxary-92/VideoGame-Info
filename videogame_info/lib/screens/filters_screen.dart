@@ -10,8 +10,16 @@ class FiltersScreen extends StatelessWidget {
     final screenSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Filters'),
+        title: const Text(
+          'Filters',
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 41, 0, 82),
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: DecoratedBox(
         decoration: const BoxDecoration(

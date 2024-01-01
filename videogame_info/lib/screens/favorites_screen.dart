@@ -12,8 +12,16 @@ class FavesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Favorites'),
+        title: const Text(
+          'Favorites',
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 41, 0, 82),
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: DecoratedBox(
         decoration: const BoxDecoration(
