@@ -85,7 +85,12 @@ class FiltersScreen extends StatelessWidget {
                         backgroundColor: const Color.fromRGBO(113, 62, 162, 1)),
                     child: const Row(
                       children: [
-                        Text("Filter_1"),
+                        Text(
+                          "Filter_1",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -100,7 +105,10 @@ class FiltersScreen extends StatelessWidget {
                         backgroundColor: const Color.fromRGBO(113, 62, 162, 1)),
                     child: const Row(
                       children: [
-                        Text("Filter_2"),
+                        Text("Filter_2",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),),
                       ],
                     ),
                   ),
