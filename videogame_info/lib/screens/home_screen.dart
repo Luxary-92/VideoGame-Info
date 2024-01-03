@@ -73,11 +73,11 @@ class HomeScreen extends StatelessWidget {
               height: 15,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 50),
+                  padding: const EdgeInsets.only(left: 0),
                   child: ElevatedButton(
                     onPressed: () {
                       debugPrint("You pressed the button!");
