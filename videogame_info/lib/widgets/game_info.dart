@@ -17,6 +17,36 @@ class MoreInfoGame extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
+                width: 60, // <-- match_parent
+                height: 60, // <-- match-parent
+                child: FloatingActionButton(
+                  onPressed: () {},
+                  backgroundColor: const Color(0xFF681DB7),
+                  mini: true,
+                  child: Icon(Icons.favorite, color: Colors.red[700], size: 30),
+                )),
+            SizedBox(
+                width: 60,
+                height: 60,
+                child: FloatingActionButton(
+                  onPressed: () {},
+                  backgroundColor: const Color(0xFF681DB7),
+                  mini: true,
+                  child: const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.star, color: Colors.yellow, size: 30),
+                        Text(
+                          "4,8",
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ]),
+                )),
+            SizedBox(
               height: 450,
               width: screenSize.width,
               child:
