@@ -6,16 +6,19 @@ class UserListItem extends StatelessWidget {
     super.key,
     required this.game,
     required this.idGame,
+    required this.fav,
   });
 
   final DetallesGame game;
   final int idGame;
+  final bool fav;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
           gameInfoID = game.id;
+
           Navigator.of(context).pushNamed("/game_info");
         },
         child: Column(
