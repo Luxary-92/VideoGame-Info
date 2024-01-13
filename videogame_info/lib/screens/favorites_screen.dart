@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:videogame_info/api.dart';
 import 'package:videogame_info/models/deatalles_game.dart';
-import 'package:videogame_info/widgets/game_list.dart';
+import 'package:videogame_info/widgets/game_fave.dart';
 
 class FavesScreen extends StatelessWidget {
   const FavesScreen({
@@ -91,7 +91,7 @@ class FavesScreen extends StatelessWidget {
                   return ListView.builder(
                     itemCount: detailsGamesList.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return UserListItem(
+                      return FaveGames(
                         game: detailsGamesList[index],
                         idGame: detailsGamesList[index].id,
                         fav: detailsGamesList[index].favorite,

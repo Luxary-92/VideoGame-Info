@@ -135,6 +135,7 @@ class HomeScreen extends StatelessWidget {
                       child: CircularProgressIndicator(),
                     );
                   }
+
                   final detailsGamesList = snapshot.data!;
                   return ListView.builder(
                     itemCount: detailsGamesList.length,
