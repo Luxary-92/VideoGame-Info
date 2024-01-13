@@ -50,7 +50,7 @@ class MoreInfoGame extends StatelessWidget {
                                         color: Colors.red[700], size: 30),
                                   )),
                               const SizedBox(
-                                width: 30,
+                                width: 15,
                               ),
                             ],
                           ),
@@ -82,7 +82,7 @@ class MoreInfoGame extends StatelessWidget {
                                         ]),
                                   )),
                               const SizedBox(
-                                width: 30,
+                                width: 15,
                               ),
                             ],
                           ),
