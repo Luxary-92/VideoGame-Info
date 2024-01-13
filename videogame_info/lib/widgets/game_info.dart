@@ -14,68 +14,107 @@ class MoreInfoGame extends StatelessWidget {
     final screenSize = MediaQuery.of(context).size;
     return SafeArea(
       child: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-                width: 60, // <-- match_parent
-                height: 60, // <-- match-parent
-                child: FloatingActionButton(
-                  onPressed: () {},
-                  backgroundColor: const Color(0xFF681DB7),
-                  mini: true,
-                  child: Icon(Icons.favorite, color: Colors.red[700], size: 30),
-                )),
-            SizedBox(
-                width: 60,
-                height: 60,
-                child: FloatingActionButton(
-                  onPressed: () {},
-                  backgroundColor: const Color(0xFF681DB7),
-                  mini: true,
-                  child: const Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.star, color: Colors.yellow, size: 30),
-                        Text(
-                          "4,8",
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
+          child: Column(
+        children: [
+          Column(
+            children: [
+              Container(
+                  height: 450,
+                  width: screenSize.width,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                    image: NetworkImage(gameInfo.image),
+                    fit: BoxFit.cover,
+                  )),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Column(
+                        children: [
+                          const SizedBox(
+                            height: 15,
+                            width: 50,
                           ),
-                        ),
-                      ]),
-                )),
-            SizedBox(
-              height: 450,
-              width: screenSize.width,
-              child:
-                  Image(image: NetworkImage(gameInfo.image), fit: BoxFit.cover),
-            ),
-            const SizedBox(height: 20),
-            Text(
-              gameInfo.name,
-              style: const TextStyle(
-                fontSize: 20,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 20),
-            SizedBox(
-              width: screenSize.width - 60,
-              child: Text(
-                gameInfo.description,
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              SizedBox(
+                                  width: 60, // <-- match_parent
+                                  height: 60, // <-- match-parent
+                                  child: FloatingActionButton(
+                                    onPressed: () {},
+                                    backgroundColor: const Color(0xFF681DB7),
+                                    mini: true,
+                                    child: Icon(Icons.favorite,
+                                        color: Colors.red[700], size: 30),
+                                  )),
+                              const SizedBox(
+                                width: 30,
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 15),
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              SizedBox(
+                                  width: 60,
+                                  height: 60,
+                                  child: FloatingActionButton(
+                                    onPressed: () {},
+                                    backgroundColor: const Color(0xFF681DB7),
+                                    mini: true,
+                                    child: const Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(Icons.star,
+                                              color: Colors.yellow, size: 30),
+                                          Text(
+                                            "4,8",
+                                            style: TextStyle(
+                                              fontSize: 15,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ]),
+                                  )),
+                              const SizedBox(
+                                width: 30,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  )),
+              const SizedBox(height: 20),
+              Text(
+                gameInfo.name,
                 style: const TextStyle(
                   fontSize: 20,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-            ),
-          ],
-        ),
-      ),
+              const SizedBox(height: 20),
+              SizedBox(
+                width: screenSize.width - 60,
+                child: Text(
+                  gameInfo.description,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      )),
     );
   }
 }
