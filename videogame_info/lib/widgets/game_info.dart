@@ -69,7 +69,7 @@ class MoreInfoGame extends StatelessWidget {
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
-                                          Icon(Icons.star,
+                                          Icon(Icons.star_rounded,
                                               color: Colors.yellow, size: 30),
                                           Text(
                                             "4,8",
