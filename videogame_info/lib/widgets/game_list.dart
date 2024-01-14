@@ -14,10 +14,13 @@ class UserListItem extends StatefulWidget {
   final bool fav;
 
   @override
+  // ignore: library_private_types_in_public_api
   _UserListItem createState() => _UserListItem();
 }
 
 class _UserListItem extends State<UserListItem> {
+  bool isFavorite = favoritesHome;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -51,6 +54,27 @@ class _UserListItem extends State<UserListItem> {
                             Colors.black.withOpacity(0.9),
                           ],
                         ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 60,
+                    height: 60,
+                    child: FloatingActionButton(
+                      heroTag: widget.game.id,
+                      onPressed: () {
+                        setState(() {
+                          debugPrint(isFavorite as String);
+                          isFavorite = !isFavorite;
+                          favoritesHome = isFavorite;
+                        });
+                      },
+                      backgroundColor: const Color(0xFF681DB7),
+                      mini: true,
+                      child: Icon(
+                        isFavorite ? Icons.favorite : Icons.favorite_border,
+                        color: Colors.red[700],
+                        size: 30,
                       ),
                     ),
                   ),

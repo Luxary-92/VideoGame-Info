@@ -14,6 +14,7 @@ class MoreInfoGame extends StatefulWidget {
   final int gameInfoID;
 
   @override
+  // ignore: library_private_types_in_public_api
   _MoreInfoGameState createState() => _MoreInfoGameState();
 }
 
@@ -57,10 +58,7 @@ class _MoreInfoGameState extends State<MoreInfoGame> {
                                 child: FloatingActionButton(
                                   heroTag: "btn1",
                                   onPressed: () {
-                                    setState(() {
-                                      isFavorite = !isFavorite;
-                                      favoritesHome = isFavorite;
-                                    });
+                                    setState(() {});
                                   },
                                   backgroundColor: const Color(0xFF681DB7),
                                   mini: true,
