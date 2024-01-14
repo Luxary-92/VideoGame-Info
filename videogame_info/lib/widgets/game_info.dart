@@ -58,6 +58,7 @@ class _MoreInfoGameState extends State<MoreInfoGame> {
                                   onPressed: () {
                                     setState(() {
                                       isFavorite = !isFavorite;
+                                      isFavorite = true;
                                     });
                                   },
                                   backgroundColor: const Color(0xFF681DB7),
