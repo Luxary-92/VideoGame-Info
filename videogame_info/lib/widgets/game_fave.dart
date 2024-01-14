@@ -1,7 +1,7 @@
 import 'package:videogame_info/models/deatalles_game.dart';
 import 'package:flutter/material.dart';
 
-class FaveGames extends StatelessWidget {
+class FaveGames extends StatefulWidget {
   const FaveGames({
     super.key,
     required this.game,
@@ -14,125 +14,156 @@ class FaveGames extends StatelessWidget {
   final bool fav;
 
   @override
-  Widget build(BuildContext context) {
-    return Container(child: () {
-      if (game.fave == false) {
-        return const SizedBox(height: 0);
-      }
-      if (game.fave == true) {
-        return GestureDetector(
-            onTap: () {
-              gameInfoID = game.id;
+  // ignore: library_private_types_in_public_api
+  _FaveGames createState() => _FaveGames();
+}
 
-              Navigator.of(context).pushNamed("/game_info");
-            },
-            child: Column(
-              children: [
-                Container(
-                  height: 400,
-                  width: 400,
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(205, 68, 0, 95),
-                    image: DecorationImage(
-                        image: NetworkImage(game.image), fit: BoxFit.cover),
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  child: Stack(
-                    children: [
-                      Positioned.fill(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            gradient: LinearGradient(
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                              colors: [
-                                Colors.transparent,
-                                Colors.black.withOpacity(0.9),
-                              ],
-                            ),
-                          ),
+class _FaveGames extends State<FaveGames> {
+  bool isFavorite = favoritesHome;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+        onTap: () {
+          gameInfoID = widget.game.id;
+          favoritesHome = widget.game.fave;
+          Navigator.of(context).pushNamed("/game_info");
+        },
+        child: Column(
+          children: [
+            Container(
+              height: 400,
+              width: 400,
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(205, 68, 0, 95),
+                image: DecorationImage(
+                    image: NetworkImage(widget.game.image), fit: BoxFit.cover),
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: Stack(
+                children: [
+                  Positioned.fill(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Colors.transparent,
+                            Colors.black.withOpacity(0.9),
+                          ],
                         ),
                       ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              const SizedBox(width: 20),
-                              Text(
-                                game.name,
-                                style: const TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      SizedBox(
+                        width: 60,
+                        height: 60,
+                        child: FloatingActionButton(
+                            heroTag: widget.game.id,
+                            onPressed: () {
+                              setState(() {
+                                widget.game.fave = !widget.game.fave;
+                              });
+                            },
+                            backgroundColor:
+                                const Color.fromARGB(255, 41, 0, 82),
+                            mini: true,
+                            child: Row(
+                              children: [
+                                Icon(
+                                  widget.game.fave
+                                      ? Icons.favorite
+                                      : Icons.favorite_border,
+                                  color: Colors.red[700],
+                                  size: 30,
                                 ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 5),
-                          Row(
-                            children: [
-                              const SizedBox(width: 20),
-                              const Text(
-                                "Rating : ",
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              Text(
-                                game.rating.toString(),
-                                style: const TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 5),
-                          Row(
-                            children: [
-                              const SizedBox(width: 20),
-                              const Text(
-                                "Playtime : ",
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              Text(
-                                game.playtime.toString(),
-                                style: const TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              const Text(
-                                " H",
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 10),
-                        ],
+                              ],
+                            )),
                       ),
                     ],
                   ),
-                ),
-                const SizedBox(width: 30, height: 30)
-              ],
-            ));
-      }
-    }());
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          const SizedBox(width: 20),
+                          Text(
+                            widget.game.name,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 5),
+                      Row(
+                        children: [
+                          const SizedBox(width: 20),
+                          const Text(
+                            "Rating : ",
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            widget.game.rating.toString(),
+                            style: const TextStyle(
+                              fontSize: 15,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 5),
+                      Row(
+                        children: [
+                          const SizedBox(width: 20),
+                          const Text(
+                            "Playtime : ",
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            widget.game.playtime.toString(),
+                            style: const TextStyle(
+                              fontSize: 15,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const Text(
+                            " H",
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 10),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(width: 30, height: 30)
+          ],
+        ));
   }
 }
