@@ -100,21 +100,28 @@ class MoreInfoGame extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              SizedBox(
-                width: screenSize.width - 60,
-                child: Text(
-                  gameInfo.description,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
+                SizedBox(
+                  width: screenSize.width - 60,
+                  child: Text(
+                    removeHtml(gameInfo.description),
+                    style: const TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-              ),
             ],
           ),
         ],
       )),
     );
+  }
+ 
+  String removeHtml(String input) {
+    // Remove HTML tags
+    RegExp exp = RegExp(r"<[^>]*>", multiLine: true, caseSensitive: true);
+    String withoutHtml = input.replaceAll(exp, '');
+    return withoutHtml;
   }
 }
