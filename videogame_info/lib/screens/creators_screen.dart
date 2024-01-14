@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:videogame_info/api.dart';
 import 'package:videogame_info/models/creatorInfo.dart';
 
-class FiltersScreen extends StatefulWidget {
-  const FiltersScreen({
+class CreatorScreen extends StatefulWidget {
+  const CreatorScreen({
     Key? key,
   }) : super(key: key);
 
   @override
-  _FiltersScreenState createState() => _FiltersScreenState();
+  _CreatorScreenState createState() => _CreatorScreenState();
 }
 
-class _FiltersScreenState extends State<FiltersScreen> {
+class _CreatorScreenState extends State<CreatorScreen> {
   late Future<List<CreatorInfo>> creators;
 
   @override
