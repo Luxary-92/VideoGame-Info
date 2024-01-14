@@ -19,7 +19,7 @@ class VideoGameInfo extends StatelessWidget {
         "/": (context) => const HomeScreen(),
         "/game_info": (context) => const GameScreen(),
         "/favorites": (context) => const FavesScreen(),
-        "/filters": (context) => const CreatorScreen(),
+        "/creators": (context) => const CreatorScreen(),
       },
     );
   }

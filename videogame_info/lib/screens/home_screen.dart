@@ -102,7 +102,7 @@ class HomeScreen extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {
                       debugPrint("You pressed the button!");
-                      Navigator.of(context).pushNamed("/filters");
+                      Navigator.of(context).pushNamed("/creators");
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: const Color.fromRGBO(113, 62, 162, 1)),
