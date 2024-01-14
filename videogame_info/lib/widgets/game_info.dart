@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:videogame_info/models/more_info_game.dart';
 
-class MoreInfoGame extends StatelessWidget {
+class MoreInfoGame extends StatefulWidget {
   const MoreInfoGame({
     super.key,
     required this.gameInfo,
@@ -10,22 +10,30 @@ class MoreInfoGame extends StatelessWidget {
   final InfoGame gameInfo;
 
   @override
+  _MoreInfoGameState createState() => _MoreInfoGameState();
+}
+
+class _MoreInfoGameState extends State<MoreInfoGame> {
+  bool isFavorite = false;
+
+  @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     return SafeArea(
       child: SingleChildScrollView(
-          child: Column(
-        children: [
-          Column(
-            children: [
-              Container(
+        child: Column(
+          children: [
+            Column(
+              children: [
+                Container(
                   height: 450,
                   width: screenSize.width,
                   decoration: BoxDecoration(
-                      image: DecorationImage(
-                    image: NetworkImage(gameInfo.image),
-                    fit: BoxFit.cover,
-                  )),
+                    image: DecorationImage(
+                      image: NetworkImage(widget.gameInfo.image),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.end,
@@ -40,16 +48,26 @@ class MoreInfoGame extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               SizedBox(
-                                  width: 60, // <-- match_parent
-                                  height: 60, // <-- match-parent
-                                  child: FloatingActionButton(
-                                    heroTag: "btn1",
-                                    onPressed: () {},
-                                    backgroundColor: const Color(0xFF681DB7),
-                                    mini: true,
-                                    child: Icon(Icons.favorite,
-                                        color: Colors.red[700], size: 30),
-                                  )),
+                                width: 60,
+                                height: 60,
+                                child: FloatingActionButton(
+                                  heroTag: "btn1",
+                                  onPressed: () {
+                                    setState(() {
+                                      isFavorite = !isFavorite;
+                                    });
+                                  },
+                                  backgroundColor: const Color(0xFF681DB7),
+                                  mini: true,
+                                  child: Icon(
+                                    isFavorite
+                                        ? Icons.favorite
+                                        : Icons.favorite_border,
+                                    color: Colors.red[700],
+                                    size: 30,
+                                  ),
+                                ),
+                              ),
                               const SizedBox(
                                 width: 15,
                               ),
@@ -60,29 +78,33 @@ class MoreInfoGame extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               SizedBox(
-                                  width: 60,
-                                  height: 60,
-                                  child: FloatingActionButton(
-                                    heroTag: "btn2",
-                                    onPressed: () {},
-                                    backgroundColor: const Color(0xFF681DB7),
-                                    mini: true,
-                                    child: const Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(Icons.star_rounded,
-                                              color: Colors.yellow, size: 30),
-                                          Text(
-                                            "4,8",
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                        ]),
-                                  )),
+                                width: 60,
+                                height: 60,
+                                child: FloatingActionButton(
+                                  heroTag: "btn2",
+                                  onPressed: () {},
+                                  backgroundColor: const Color(0xFF681DB7),
+                                  mini: true,
+                                  child: const Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        Icons.star_rounded,
+                                        color: Colors.yellow,
+                                        size: 30,
+                                      ),
+                                      Text(
+                                        "4,8",
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
                               const SizedBox(
                                 width: 15,
                               ),
@@ -91,21 +113,22 @@ class MoreInfoGame extends StatelessWidget {
                         ],
                       ),
                     ],
-                  )),
-              const SizedBox(height: 20),
-              Text(
-                gameInfo.name,
-                style: const TextStyle(
-                  fontSize: 30,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 20),
+                const SizedBox(height: 20),
+                Text(
+                  widget.gameInfo.name,
+                  style: const TextStyle(
+                    fontSize: 30,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 20),
                 SizedBox(
                   width: screenSize.width - 60,
                   child: Text(
-                    removeHtml(gameInfo.description),
+                    removeHtml(widget.gameInfo.description),
                     style: const TextStyle(
                       fontSize: 20,
                       color: Colors.white,
@@ -113,13 +136,14 @@ class MoreInfoGame extends StatelessWidget {
                     ),
                   ),
                 ),
-            ],
-          ),
-        ],
-      )),
+              ],
+            ),
+          ],
+        ),
+      ),
     );
   }
- 
+
   String removeHtml(String input) {
     // Remove HTML tags
     RegExp exp = RegExp(r"<[^>]*>", multiLine: true, caseSensitive: true);
