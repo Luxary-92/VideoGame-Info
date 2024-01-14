@@ -27,7 +27,7 @@ class _CreatorScreenState extends State<CreatorScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Filters',
+          'Creators',
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
@@ -100,11 +100,77 @@ class _CreatorScreenState extends State<CreatorScreen> {
                       itemCount: snapshot.data!.length,
                       itemBuilder: (context, index) {
                         final creator = snapshot.data![index];
-                        return ListTile(
-                          leading: CircleAvatar(
-                            backgroundImage: NetworkImage(creator.image),
+                        return Card(
+                          elevation: 5,
+                          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
                           ),
-                          title: Text(creator.name, style: TextStyle(color: Colors.white)),
+                          color: Colors.transparent, 
+                          child: ExpansionTile(
+                            tilePadding: const EdgeInsets.all(16),
+                            leading: CircleAvatar(
+                              radius: 30,
+                              backgroundColor: Colors.transparent, 
+                              backgroundImage: NetworkImage(creator.image),
+                            ),
+                            title: Text(
+                              creator.name,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                                color: Colors.white,
+                              ),
+                            ),
+                            children: [
+                              ListTile(
+                                title: Text(
+                                  'Positions: ${creator.positions.join(", ")}',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                subtitle: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Games Count: ${creator.games.length}',
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                    const SizedBox(height: 8),
+                                    Text(
+                                      'Games:',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: creator.games
+                                          .map(
+                                            (gameId) => FutureBuilder<String>(
+                                              future: apiLoadGameName(gameId),
+                                              builder: (context, gameSnapshot) {
+                                                if (gameSnapshot.connectionState ==
+                                                    ConnectionState.waiting) {
+                                                  return CircularProgressIndicator();
+                                                } else if (gameSnapshot.hasError) {
+                                                  return Text('Error loading game name');
+                                                } else {
+                                                  return Text(
+                                                    '- ${gameSnapshot.data}',
+                                                    style: TextStyle(color: Colors.white),
+                                                  );
+                                                }
+                                              },
+                                            ),
+                                          )
+                                          .toList(),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         );
                       },
                     );
