@@ -109,7 +109,7 @@ class HomeScreen extends StatelessWidget {
                     child: const Row(
                       children: [
                         Text(
-                          "FILTERS",
+                          "CREATORS",
                           style: TextStyle(
                             color: Colors.white,
                           ),
