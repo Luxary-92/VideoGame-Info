@@ -2,7 +2,6 @@ class InfoGame {
   String name, description, released, image, image_2;
   double rating;
   int playtime;
-  bool fave;
 
   InfoGame.fromJson(Map<String, dynamic> json)
       : name = json["name"],
@@ -11,6 +10,5 @@ class InfoGame {
         image = json["background_image"],
         image_2 = json["background_image_additional"],
         rating = json["rating"],
-        playtime = json["playtime"],
-        fave = false;
+        playtime = json["playtime"];
 }

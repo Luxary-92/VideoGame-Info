@@ -16,7 +16,7 @@ class FaveGames extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(child: () {
-      if (game.favorite == true) {
+      if (game.fave == true) {
         return const SizedBox(height: 0);
       }
       if (game.id == 3328) {

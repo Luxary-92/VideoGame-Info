@@ -143,7 +143,7 @@ class HomeScreen extends StatelessWidget {
                       return UserListItem(
                         game: detailsGamesList[index],
                         idGame: detailsGamesList[index].id,
-                        fav: detailsGamesList[index].favorite,
+                        fav: detailsGamesList[index].fave,
                       );
                     },
                   );

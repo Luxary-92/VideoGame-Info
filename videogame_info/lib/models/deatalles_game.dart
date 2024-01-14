@@ -3,7 +3,7 @@ class DetallesGame {
   String name, released, image;
   double rating;
   int playtime;
-  bool favorite;
+  bool fave;
 
   DetallesGame.fromJson(Map<String, dynamic> json)
       : id = json["id"],
@@ -12,7 +12,7 @@ class DetallesGame {
         image = json["background_image"],
         rating = json["rating"],
         playtime = json["playtime"],
-        favorite = false;
+        fave = false;
 }
 
 int gameInfoID = 3328;
