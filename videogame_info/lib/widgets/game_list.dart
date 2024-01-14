@@ -1,7 +1,7 @@
 import 'package:videogame_info/models/deatalles_game.dart';
 import 'package:flutter/material.dart';
 
-class UserListItem extends StatelessWidget {
+class UserListItem extends StatefulWidget {
   const UserListItem({
     super.key,
     required this.game,
@@ -14,11 +14,16 @@ class UserListItem extends StatelessWidget {
   final bool fav;
 
   @override
+  _UserListItem createState() => _UserListItem();
+}
+
+class _UserListItem extends State<UserListItem> {
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
-          gameInfoID = game.id;
-          favoritesHome = game.fave;
+          gameInfoID = widget.game.id;
+          favoritesHome = widget.game.fave;
           Navigator.of(context).pushNamed("/game_info");
         },
         child: Column(
@@ -29,7 +34,7 @@ class UserListItem extends StatelessWidget {
               decoration: BoxDecoration(
                 color: const Color.fromARGB(205, 68, 0, 95),
                 image: DecorationImage(
-                    image: NetworkImage(game.image), fit: BoxFit.cover),
+                    image: NetworkImage(widget.game.image), fit: BoxFit.cover),
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Stack(
@@ -57,7 +62,7 @@ class UserListItem extends StatelessWidget {
                         children: [
                           const SizedBox(width: 20),
                           Text(
-                            game.name,
+                            widget.game.name,
                             style: const TextStyle(
                               fontSize: 20,
                               color: Colors.white,
@@ -79,7 +84,7 @@ class UserListItem extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            game.rating.toString(),
+                            widget.game.rating.toString(),
                             style: const TextStyle(
                               fontSize: 15,
                               color: Colors.white,
@@ -101,7 +106,7 @@ class UserListItem extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            game.playtime.toString(),
+                            widget.game.playtime.toString(),
                             style: const TextStyle(
                               fontSize: 15,
                               color: Colors.white,
