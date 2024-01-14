@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:videogame_info/models/deatalles_game.dart';
 import 'package:videogame_info/models/more_info_game.dart';
+import 'dart:developer' as developer;
 
 class MoreInfoGame extends StatefulWidget {
   const MoreInfoGame({
@@ -58,7 +59,7 @@ class _MoreInfoGameState extends State<MoreInfoGame> {
                                   onPressed: () {
                                     setState(() {
                                       isFavorite = !isFavorite;
-                                      isFavorite = true;
+                                      favoritesHome = isFavorite;
                                     });
                                   },
                                   backgroundColor: const Color(0xFF681DB7),
