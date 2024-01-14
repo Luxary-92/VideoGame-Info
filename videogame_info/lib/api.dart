@@ -52,6 +52,20 @@ Future<List<CreatorInfo>> apiLoadAllCreators() async {
 
   return creators;
 }
+
+Future<String> apiLoadGameName(int gameId) async {
+
+  final response = await http.get(
+    Uri.parse('https://api.rawg.io/api/games/$gameId?key=66512237741a4c0e8fbfc7b5d2c21c92'),
+  );
+
+  if (response.statusCode == 200) {
+    final Map<String, dynamic> gameData = json.decode(response.body);
+    return gameData['name'];
+  } else {
+    throw Exception('Failed to load game name');
+  }
+}
 /*
 Future<GenreDetails> apiLoadGenreDetails(int  genreId) async {
   
