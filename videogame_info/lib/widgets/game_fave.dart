@@ -16,10 +16,10 @@ class FaveGames extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(child: () {
-      if (game.fave == true) {
+      if (game.fave == false) {
         return const SizedBox(height: 0);
       }
-      if (game.id == 3328) {
+      if (game.fave == true) {
         return GestureDetector(
             onTap: () {
               gameInfoID = game.id;
