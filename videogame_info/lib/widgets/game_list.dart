@@ -18,7 +18,7 @@ class UserListItem extends StatelessWidget {
     return GestureDetector(
         onTap: () {
           gameInfoID = game.id;
-
+          favoritesHome = game.fave;
           Navigator.of(context).pushNamed("/game_info");
         },
         child: Column(

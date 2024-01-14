@@ -16,3 +16,5 @@ class DetallesGame {
 }
 
 int gameInfoID = 3328;
+
+bool favorites = false;
