@@ -94,7 +94,7 @@ class MoreInfoGame extends StatelessWidget {
               Text(
                 gameInfo.name,
                 style: const TextStyle(
-                  fontSize: 20,
+                  fontSize: 30,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
