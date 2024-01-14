@@ -35,6 +35,18 @@ Future<InfoGame> apiLoadInfoGame(int gameId) async {
   */
   return InfoGame.fromJson(json);
 }
+/*
+Future<GenreDetails> apiLoadGenreDetails(int  genreId) async {
+  
+ final uri = Uri.parse(
+      "https://api.rawg.io/api/genres/$genreId?key=66512237741a4c0e8fbfc7b5d2c21c92");
+
+  final response = await http.get(uri);
+
+  final json = jsonDecode(response.body);
+
+  return GenreDetails.fromJson(json);
+}*/
 
 /*
 Future<InfoGame> apiLoadInfoGame(int gameId) async {
