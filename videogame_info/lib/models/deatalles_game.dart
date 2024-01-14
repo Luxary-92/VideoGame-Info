@@ -13,6 +13,15 @@ class DetallesGame {
         rating = json["rating"],
         playtime = json["playtime"],
         fave = false;
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "name": name,
+        "released": released,
+        "background_image": image,
+        "rating": rating,
+        "playtime": playtime
+      };
 }
 
 int gameInfoID = 3328;
