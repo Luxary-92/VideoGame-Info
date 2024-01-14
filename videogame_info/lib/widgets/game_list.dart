@@ -64,7 +64,6 @@ class _UserListItem extends State<UserListItem> {
                       heroTag: widget.game.id,
                       onPressed: () {
                         setState(() {
-                          debugPrint(isFavorite as String);
                           isFavorite = !isFavorite;
                           favoritesHome = isFavorite;
                         });
