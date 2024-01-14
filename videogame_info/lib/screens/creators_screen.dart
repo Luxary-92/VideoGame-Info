@@ -56,7 +56,7 @@ class _CreatorScreenState extends State<CreatorScreen> {
               height: 20,
               width: screenSize.width,
             ),
-            SizedBox(
+            const SizedBox(
               width: 400,
             ),
             Expanded(
@@ -64,11 +64,11 @@ class _CreatorScreenState extends State<CreatorScreen> {
                 future: creators,
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(child: CircularProgressIndicator());
+                    return const Center(child: CircularProgressIndicator());
                   } else if (snapshot.hasError) {
-                    return Center(child: Text('Error loading creators'));
+                    return const Center(child: const Text('Error loading creators'));
                   } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                    return Center(child: Text('No creators available'));
+                    return const Center(child: Text('No creators available'));
                   } else {
                     return ListView.builder(
                       itemCount: snapshot.data!.length,
@@ -90,7 +90,7 @@ class _CreatorScreenState extends State<CreatorScreen> {
                             ),
                             title: Text(
                               creator.name,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 18,
                                 color: Colors.white,
@@ -100,17 +100,17 @@ class _CreatorScreenState extends State<CreatorScreen> {
                               ListTile(
                                 title: Text(
                                   'Positions: ${creator.positions.join(", ")}',
-                                  style: TextStyle(color: Colors.white),
+                                  style: const TextStyle(color: Colors.white),
                                 ),
                                 subtitle: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
                                       'Games Count: ${creator.games.length}',
-                                      style: TextStyle(color: Colors.white),
+                                      style: const TextStyle(color: Colors.white),
                                     ),
                                     const SizedBox(height: 8),
-                                    Text(
+                                    const Text(
                                       'Games:',
                                       style: TextStyle(
                                         color: Colors.white,
@@ -126,13 +126,13 @@ class _CreatorScreenState extends State<CreatorScreen> {
                                               builder: (context, gameSnapshot) {
                                                 if (gameSnapshot.connectionState ==
                                                     ConnectionState.waiting) {
-                                                  return CircularProgressIndicator();
+                                                  return const CircularProgressIndicator();
                                                 } else if (gameSnapshot.hasError) {
-                                                  return Text('Error loading game name');
+                                                  return const Text('Error loading game name');
                                                 } else {
                                                   return Text(
                                                     '- ${gameSnapshot.data}',
-                                                    style: TextStyle(color: Colors.white),
+                                                    style: const TextStyle(color: Colors.white),
                                                   );
                                                 }
                                               },
