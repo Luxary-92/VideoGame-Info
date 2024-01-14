@@ -55,7 +55,10 @@ class GameScreen extends StatelessWidget {
                     return Container();
                   }
                   final detailsGamesList = snapshot_2.data!;
-                  return MoreInfoGame(gameInfo: detailsGamesList);
+                  return MoreInfoGame(
+                    gameInfo: detailsGamesList,
+                    gameInfoID: gameID,
+                  );
                 },
               ),
             ),

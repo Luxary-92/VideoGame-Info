@@ -6,9 +6,11 @@ class MoreInfoGame extends StatefulWidget {
   const MoreInfoGame({
     super.key,
     required this.gameInfo,
+    required this.gameInfoID,
   });
 
   final InfoGame gameInfo;
+  final int gameInfoID;
 
   @override
   _MoreInfoGameState createState() => _MoreInfoGameState();
