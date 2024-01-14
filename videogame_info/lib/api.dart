@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:videogame_info/models/creatorInfo.dart';
 import 'package:videogame_info/models/deatalles_game.dart';
 import 'package:http/http.dart' as http;
 import 'package:videogame_info/models/more_info_game.dart';
@@ -34,6 +35,22 @@ Future<InfoGame> apiLoadInfoGame(int gameId) async {
   }
   */
   return InfoGame.fromJson(json);
+}
+
+
+Future<List<CreatorInfo>> apiLoadAllCreators() async {
+  final uri = Uri.parse(
+      "https://api.rawg.io/api/creators?key=66512237741a4c0e8fbfc7b5d2c21c92");
+  final response = await http.get(uri);
+
+  final json = jsonDecode(response.body);
+  final List<dynamic> jsonCreators = json["results"];
+
+  final List<CreatorInfo> creators = jsonCreators
+      .map((jsonCreator) => CreatorInfo.fromJson(jsonCreator))
+      .toList();
+
+  return creators;
 }
 /*
 Future<GenreDetails> apiLoadGenreDetails(int  genreId) async {
