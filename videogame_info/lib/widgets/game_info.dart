@@ -88,17 +88,17 @@ class _MoreInfoGameState extends State<MoreInfoGame> {
                                   onPressed: () {},
                                   backgroundColor: const Color(0xFF681DB7),
                                   mini: true,
-                                  child: const Column(
+                                  child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Icon(
+                                      const Icon(
                                         Icons.star_rounded,
                                         color: Colors.yellow,
                                         size: 30,
                                       ),
                                       Text(
-                                        "4,8",
-                                        style: TextStyle(
+                                        widget.gameInfo.rating.toString(),
+                                        style: const TextStyle(
                                           fontSize: 15,
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold,

@@ -64,25 +64,37 @@ class _UserListItem extends State<UserListItem> {
                         width: 60,
                         height: 60,
                         child: FloatingActionButton(
-                          heroTag: widget.game.id,
-                          onPressed: () {
-                            setState(() {
-                              widget.game.fave = !widget.game.fave;
-                              /*
+                            heroTag: widget.game.id,
+                            onPressed: () {
+                              setState(() {
+                                widget.game.fave = !widget.game.fave;
+                                /*
                               isFavorite = !isFavorite;
                               favoritesHome = isFavorite;
                               */
-                            });
-                          },
-                          backgroundColor: const Color.fromARGB(255, 41, 0, 82),
-                          mini: true,
-                          child: Icon(
-                            widget.game.fave
-                                ? Icons.favorite
-                                : Icons.favorite_border,
-                            color: Colors.red[700],
-                            size: 30,
-                          ),
+                              });
+                            },
+                            backgroundColor:
+                                const Color.fromARGB(255, 41, 0, 82),
+                            mini: true,
+                            child: Row(
+                              children: [
+                                Icon(
+                                  widget.game.fave
+                                      ? Icons.favorite
+                                      : Icons.favorite_border,
+                                  color: Colors.red[700],
+                                  size: 30,
+                                ),
+                              ],
+                            )),
+                      ),
+                      Text(
+                        widget.game.fave.toString(),
+                        style: const TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ],
