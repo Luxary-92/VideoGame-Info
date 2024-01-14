@@ -104,7 +104,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                           leading: CircleAvatar(
                             backgroundImage: NetworkImage(creator.image),
                           ),
-                          title: Text(creator.name),
+                          title: Text(creator.name, style: TextStyle(color: Colors.white)),
                         );
                       },
                     );
