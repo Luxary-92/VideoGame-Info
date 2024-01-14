@@ -57,25 +57,35 @@ class _UserListItem extends State<UserListItem> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    width: 60,
-                    height: 60,
-                    child: FloatingActionButton(
-                      heroTag: widget.game.id,
-                      onPressed: () {
-                        setState(() {
-                          isFavorite = !isFavorite;
-                          favoritesHome = isFavorite;
-                        });
-                      },
-                      backgroundColor: const Color(0xFF681DB7),
-                      mini: true,
-                      child: Icon(
-                        isFavorite ? Icons.favorite : Icons.favorite_border,
-                        color: Colors.red[700],
-                        size: 30,
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      SizedBox(
+                        width: 60,
+                        height: 60,
+                        child: FloatingActionButton(
+                          heroTag: widget.game.id,
+                          onPressed: () {
+                            setState(() {
+                              widget.game.fave = !widget.game.fave;
+                              /*
+                              isFavorite = !isFavorite;
+                              favoritesHome = isFavorite;
+                              */
+                            });
+                          },
+                          backgroundColor: const Color.fromARGB(255, 41, 0, 82),
+                          mini: true,
+                          child: Icon(
+                            widget.game.fave
+                                ? Icons.favorite
+                                : Icons.favorite_border,
+                            color: Colors.red[700],
+                            size: 30,
+                          ),
+                        ),
                       ),
-                    ),
+                    ],
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.end,
