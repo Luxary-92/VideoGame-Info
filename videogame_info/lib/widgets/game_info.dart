@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:videogame_info/models/deatalles_game.dart';
 import 'package:videogame_info/models/more_info_game.dart';
 
 class MoreInfoGame extends StatefulWidget {
@@ -14,7 +15,7 @@ class MoreInfoGame extends StatefulWidget {
 }
 
 class _MoreInfoGameState extends State<MoreInfoGame> {
-  bool isFavorite = false;
+  bool isFavorite = favoritesHome;
 
   @override
   Widget build(BuildContext context) {
