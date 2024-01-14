@@ -1,13 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:videogame_info/api.dart';
+import 'package:videogame_info/models/creatorInfo.dart';
 
-class FiltersScreen extends StatelessWidget {
+class FiltersScreen extends StatefulWidget {
   const FiltersScreen({
-    super.key,
-  });
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  _FiltersScreenState createState() => _FiltersScreenState();
+}
+
+class _FiltersScreenState extends State<FiltersScreen> {
+  late Future<List<CreatorInfo>> creators;
+
+  @override
+  void initState() {
+    super.initState();
+    creators = apiLoadAllCreators();
+  }
 
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -54,9 +70,7 @@ class FiltersScreen extends StatelessWidget {
                   prefixIcon: Icon(Icons.search),
                   suffixIcon: Icon(Icons.clear),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(
-                      10.0,
-                    )),
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
                   ),
                   labelText: 'Search',
                   labelStyle: TextStyle(
@@ -71,49 +85,32 @@ class FiltersScreen extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 50),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      debugPrint("You pressed the button!");
-                    },
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color.fromRGBO(113, 62, 162, 1)),
-                    child: const Row(
-                      children: [
-                        Text(
-                          "Filter_1",
-                          style: TextStyle(
-                            color: Colors.white,
+            Expanded(
+              child: FutureBuilder<List<CreatorInfo>>(
+                future: creators,
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return Center(child: CircularProgressIndicator());
+                  } else if (snapshot.hasError) {
+                    return Center(child: Text('Error loading creators'));
+                  } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                    return Center(child: Text('No creators available'));
+                  } else {
+                    return ListView.builder(
+                      itemCount: snapshot.data!.length,
+                      itemBuilder: (context, index) {
+                        final creator = snapshot.data![index];
+                        return ListTile(
+                          leading: CircleAvatar(
+                            backgroundImage: NetworkImage(creator.image),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      debugPrint("You pressed the button!");
-                    },
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color.fromRGBO(113, 62, 162, 1)),
-                    child: const Row(
-                      children: [
-                        Text("Filter_2",
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
+                          title: Text(creator.name),
+                        );
+                      },
+                    );
+                  }
+                },
+              ),
             ),
           ],
         ),
