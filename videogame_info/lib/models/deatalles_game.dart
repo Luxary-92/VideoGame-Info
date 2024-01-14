@@ -12,7 +12,7 @@ class DetallesGame {
         image = json["background_image"],
         rating = json["rating"],
         playtime = json["playtime"],
-        fave = true;
+        fave = false;
 }
 
 int gameInfoID = 3328;
