@@ -43,6 +43,7 @@ class MoreInfoGame extends StatelessWidget {
                                   width: 60, // <-- match_parent
                                   height: 60, // <-- match-parent
                                   child: FloatingActionButton(
+                                    heroTag: "btn1",
                                     onPressed: () {},
                                     backgroundColor: const Color(0xFF681DB7),
                                     mini: true,
@@ -62,6 +63,7 @@ class MoreInfoGame extends StatelessWidget {
                                   width: 60,
                                   height: 60,
                                   child: FloatingActionButton(
+                                    heroTag: "btn2",
                                     onPressed: () {},
                                     backgroundColor: const Color(0xFF681DB7),
                                     mini: true,
